@@ -275,7 +275,7 @@ function Index() {
             </div>
             <div className="flex gap-6 text-white/80">
               <a href={CONFIG.instagramUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[#E8862D] transition-colors flex items-center gap-2">
-                <Instagram size={20} /> Instagram
+                Instagram
               </a>
               <div className="flex items-center gap-2">
                 <MapPin size={20} /> {CONFIG.city}
