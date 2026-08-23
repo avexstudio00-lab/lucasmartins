@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { MessageSquare, CheckCircle, Dog, Home, ShieldCheck, MapPin, Instagram } from "lucide-react";
+import { MessageSquare, CheckCircle, Dog, Home, ShieldCheck, MapPin } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const CONFIG = {
