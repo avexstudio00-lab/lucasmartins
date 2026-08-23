@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { 
   Phone, 
   MapPin, 
-  Instagram, 
   CheckCircle, 
   Dog, 
   Home, 
