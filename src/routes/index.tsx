@@ -1,76 +1,94 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { 
-  Phone, 
-  MapPin, 
-  CheckCircle, 
-  Dog, 
-  Home, 
-  ShieldCheck, 
-  Calendar,
-  MessageSquare
-} from "lucide-react";
-import { cn } from "@/lib/utils";
+import { MessageSquare, CheckCircle, Dog, Home, ShieldCheck, MapPin, Instagram } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+
+const CONFIG = {
+  phone: "5511913200125",
+  whatsappUrl: "https://wa.me/5511913200125",
+  instagramUrl: "https://www.instagram.com/adestrador_lucasmartins/",
+  city: "São Paulo",
+  images: {
+    hero: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&q=80&w=1200",
+    adestramento: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&q=80&w=800",
+    hospedagem: "https://images.unsplash.com/photo-1576201836106-db175881c565?auto=format&fit=crop&q=80&w=800",
+    internato: "https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&q=80&w=800",
+    about: "https://images.unsplash.com/photo-1581888227599-779811939961?auto=format&fit=crop&q=80&w=800",
+  }
+};
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
 function Index() {
-  const WHATSAPP_URL = "https://wa.me/5511913200125";
-  
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-primary/20">
-      {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4">
-          <div className="text-xl font-bold text-secondary">Lucas Martins</div>
-          <nav className="hidden md:flex gap-6 text-sm font-medium">
-            <a href="#servicos" className="hover:text-primary transition-colors">Serviços</a>
-            <a href="#sobre" className="hover:text-primary transition-colors">Sobre</a>
-            <a href="#faq" className="hover:text-primary transition-colors">FAQ</a>
+    <div className="min-h-screen bg-[#FFFDF9] text-[#2B2118] font-sans">
+      <header className="sticky top-0 z-50 bg-[#FFFDF9]/90 border-b border-[#5C4632]/10 backdrop-blur">
+        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+          <span className="font-bold text-xl">Adestrador Lucas Martins</span>
+          <nav className="hidden md:flex gap-6 font-medium">
+            <a href="#servicos" className="hover:text-[#E8862D]">Serviços</a>
+            <a href="#sobre" className="hover:text-[#E8862D]">Sobre</a>
+            <a href="#depoimentos" className="hover:text-[#E8862D]">Depoimentos</a>
+            <a href="#faq" className="hover:text-[#E8862D]">FAQ</a>
           </nav>
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-all"
-          >
-            <MessageSquare className="h-4 w-4" /> Falar no WhatsApp
-          </a>
+          <a href={CONFIG.whatsappUrl} className="bg-[#E8862D] text-white px-4 py-2 rounded-full font-semibold">Falar no WhatsApp</a>
         </div>
       </header>
 
-      {/* Hero */}
-      <section className="container mx-auto px-4 py-16 md:py-24 text-center">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="text-sm font-bold tracking-widest text-primary uppercase">Adestramento • Hospedagem • Lar temporário</span>
-          <h1 className="mt-4 text-4xl md:text-6xl font-bold tracking-tight">Seu cão bem treinado,<br />cuidado e feliz</h1>
-          <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">Transformamos a convivência com seu melhor amigo em uma experiência harmoniosa e segura.</p>
-          <div className="mt-10 flex flex-wrap gap-4 justify-center">
-            <a href={WHATSAPP_URL} className="rounded-lg bg-primary px-8 py-4 font-semibold text-primary-foreground">Falar no WhatsApp</a>
-            <a href="#servicos" className="rounded-lg border border-border px-8 py-4 font-semibold hover:bg-accent transition-colors">Conhecer os serviços</a>
-          </div>
-        </motion.div>
+      <section className="container mx-auto px-4 py-16 text-center">
+        <span className="text-[#E8862D] font-bold tracking-widest uppercase">Adestramento • Hospedagem • Lar temporário</span>
+        <h1 className="text-5xl md:text-6xl font-bold mt-4">Seu cão bem treinado, cuidado e feliz</h1>
+        <div className="mt-8 flex gap-4 justify-center">
+          <a href={CONFIG.whatsappUrl} className="bg-[#E8862D] text-white px-8 py-4 rounded-lg font-bold">Falar no WhatsApp</a>
+          <a href="#servicos" className="border border-[#5C4632] px-8 py-4 rounded-lg font-bold">Conhecer os serviços</a>
+        </div>
+        <img src={CONFIG.images.hero} alt="Cão feliz" className="mt-12 rounded-2xl w-full max-w-4xl mx-auto h-96 object-cover" />
       </section>
 
-      {/* Footer */}
-      <footer className="border-t py-12 text-center bg-secondary text-secondary-foreground">
-        <p>&copy; {new Date().getFullYear()} Adestrador Lucas Martins. Todos os direitos reservados.</p>
+      <section id="servicos" className="bg-white py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12">Nossos Serviços</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { title: "Adestramento", img: CONFIG.images.adestramento, msg: "Olá! Vi o serviço de Adestramento no site e gostaria de saber mais." },
+              { title: "Hospedagem/Hotel", img: CONFIG.images.hospedagem, msg: "Olá! Vi o serviço de Hospedagem no site e gostaria de saber mais." },
+              { title: "Internato", img: CONFIG.images.internato, msg: "Olá! Vi o serviço de Internato no site e gostaria de saber mais." }
+            ].map(s => (
+              <div key={s.title} className="rounded-2xl overflow-hidden shadow-lg border border-[#5C4632]/10">
+                <img src={s.img} alt={s.title} className="w-full h-48 object-cover" />
+                <div className="p-6 text-center">
+                  <h3 className="text-2xl font-bold mb-4">{s.title}</h3>
+                  <a href={`${CONFIG.whatsappUrl}?text=${encodeURIComponent(s.msg)}`} className="block w-full bg-[#E8862D] text-white py-3 rounded-lg font-bold">Solicitar</a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" className="py-20">
+        <div className="container mx-auto px-4 max-w-2xl">
+          <h2 className="text-4xl font-bold text-center mb-12">Dúvidas Frequentes</h2>
+          <Accordion type="single" collapsible>
+            {[1,2,3,4,5].map(i => (
+              <AccordionItem key={i} value={`item-${i}`}>
+                <AccordionTrigger>Pergunta frequente sobre o pet {i}?</AccordionTrigger>
+                <AccordionContent>Resposta explicativa sobre o serviço e cuidado do Adestrador Lucas Martins.</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
+      <footer className="bg-[#5C4632] text-[#FFFDF9] py-12 text-center">
+        <p className="mb-4">Atendendo em {CONFIG.city}</p>
+        <a href={CONFIG.instagramUrl} className="inline-block text-[#E8862D] font-bold">@adestrador_lucasmartins</a>
       </footer>
 
-      {/* WhatsApp Flutuante */}
-      <a
-        href={WHATSAPP_URL}
-        className="fixed bottom-6 right-6 z-50 rounded-full bg-[#25D366] p-4 text-white shadow-xl hover:scale-110 transition-transform"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <MessageSquare className="h-8 w-8" />
+      <a href={CONFIG.whatsappUrl} className="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl z-50">
+        <MessageSquare size={32} />
       </a>
     </div>
   );
