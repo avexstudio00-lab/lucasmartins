@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MessageSquare, CheckCircle, Dog, Home, ShieldCheck, MapPin, Star, ArrowRight, Instagram } from "lucide-react";
+import { MessageSquare, CheckCircle, Dog, Home, ShieldCheck, MapPin, Star, ArrowRight } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
 
